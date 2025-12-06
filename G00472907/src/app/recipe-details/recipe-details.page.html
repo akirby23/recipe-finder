@@ -1,0 +1,26 @@
+<ion-content [fullscreen]="true">
+  <h2>Ingredients</h2>
+  <ion-card>
+    <ion-img alt="placeholder image" src="https://images.pexels.com/photos/4033636/pexels-photo-4033636.jpeg"></ion-img>
+    <ion-card-header>
+      <ion-card-title>
+        {{ ingredient }}
+      </ion-card-title>
+        {{ quantity }}
+    </ion-card-header> 
+  </ion-card>
+
+  <h2>Instructions</h2>
+  <ol>
+    <li>Step 1</li>
+    <li>Step 2</li>
+    <li>Step 3</li>
+    <li>Step 4</li>
+    <li>Step 5</li>
+    <li>Step 6 </li>
+    <li>Step 7</li>
+  </ol>
+
+  <ion-button aria-label="Add to Favourites"><ion-icon name="heart"></ion-icon> Add to Favourites</ion-button>
+  <ion-button aria-label="Remove from Favourites"><ion-icon name="heart-dislike"></ion-icon> Remove from Favourites</ion-button>
+</ion-content>
