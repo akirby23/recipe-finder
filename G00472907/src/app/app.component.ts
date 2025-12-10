@@ -5,6 +5,7 @@ import { heart, heartDislike, settingsOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   templateUrl: 'app.component.html',
   imports: [IonApp, IonRouterOutlet],
 })
