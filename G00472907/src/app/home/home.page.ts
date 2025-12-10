@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, IonIcon } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { logoIonic } from 'ionicons/icons';
+import { FavouriteRecipes } from '../services/favourite-recipes.service';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,7 @@ import { logoIonic } from 'ionicons/icons';
   imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, IonIcon],
 })
 export class HomePage {
-  constructor() {
+  constructor(private frs: FavouriteRecipes) {
   
   }
 }
