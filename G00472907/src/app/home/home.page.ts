@@ -4,7 +4,7 @@ import { addIcons } from 'ionicons';
 import { logoIonic, heart, settingsOutline } from 'ionicons/icons';
 import { MyHttp } from '../services/my-http.service';
 import { HttpOptions } from '@capacitor/core';
-import { environment } from '../environments/environment';
+import { environment } from 'src/environments/environment';
 import { FavouriteRecipes } from '../services/favourite-recipes.service';
 
 @Component({
@@ -19,7 +19,7 @@ export class HomePage {
   recipeData: any[] = [];
 
   options: HttpOptions = {
-    url: 'https://spoonacular.com/food-api/docs#Search-Recipes-Complex',
+    url: 'https://spoonacular.com/recipes/complexSearch',
     params: {
       apiKey: environment.apiKey,
     }
@@ -40,7 +40,7 @@ export class HomePage {
 
       let result = await this.mhs.get(this.options);
       this.recipeData = result.data;
-      console.log(this.recipeData);
+      console.log(result);
     } catch (err) {
       console.error('Error fetching recipes:', err)
     }
