@@ -1,0 +1,10 @@
+
+<ion-content [fullscreen]="true">
+  <h2>Measurement Preferences</h2>
+  <p>Display measurements in:</p>
+  <ion-radio-group [(ngModel)]="selectedMeasurement" (ionChange)="changeMeasurementSettings($event.detail.value)">
+  <ion-item *ngFor="let option of measurementOptions">
+  <ion-radio [value]="option">{{ option }}</ion-radio><br />
+  </ion-item>
+</ion-radio-group>
+</ion-content>

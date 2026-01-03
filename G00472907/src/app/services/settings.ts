@@ -12,6 +12,11 @@ export class Settings {
     async init() {
       const storage = await this.storage.create();
     }
+
+    async get(key: string, defaultOption: any) {
+      let value = await this.storage.get(key);
+      return value ?? defaultOption;
+    }
   
     async set(key:string, value:any) {
       await this.storage.set(key, value);
