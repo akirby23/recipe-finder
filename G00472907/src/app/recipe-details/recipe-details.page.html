@@ -1,8 +1,10 @@
 <app-heading></app-heading>
 <ion-content [fullscreen]="true" *ngIf="recipe">
-  <ion-title> {{ recipe.title }}</ion-title>
-  <ion-img alt="Image of {{ recipe.title }}" src="{{ recipe.image }}">
-  </ion-img>
+  <div class="ion-padding ion-text-center">
+    <h2>{{ recipe.title }}</h2>
+    <ion-img alt="Image of {{ recipe.title }}" src="{{ recipe.image }}">
+    </ion-img>
+  </div>
   <ion-list [inset]="true">
     <ion-list-header>
       <h2>Ingredients</h2>
