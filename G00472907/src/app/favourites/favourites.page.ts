@@ -12,7 +12,7 @@ import { RecipeListPage } from "../recipe-list/recipe-list.page";
   standalone: true,
   imports: [IonContent, CommonModule, FormsModule, HeadingComponent, RecipeListPage]
 })
-export class FavouritesPage implements OnInit {
+export class FavouritesPage {
   favourites: any[] = [];
 
   constructor(private storage: FavouriteRecipes) { }
@@ -23,7 +23,7 @@ export class FavouritesPage implements OnInit {
     return result;
   }
 
-    ngOnInit() {
-      this.getFavourites();
+  ionViewWillEnter() {
+    this.getFavourites();
   }
 }
