@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonImg, IonButton, IonIcon, IonTitle, IonList, IonItem, IonListHeader, IonLabel} from '@ionic/angular/standalone';
+import { IonContent, IonImg, IonButton, IonIcon, IonList, IonItem, IonListHeader, IonLabel, IonToast } from '@ionic/angular/standalone';
 import { MyHttp } from '../services/my-http.service';
 import { ActivatedRoute } from '@angular/router';
 import { HeadingComponent } from "../components/heading/heading.component";
@@ -13,7 +13,7 @@ import { FavouriteRecipes } from '../services/favourite-recipes.service';
   templateUrl: './recipe-details.page.html',
   styleUrls: ['./recipe-details.page.scss'],
   standalone: true,
-  imports: [IonLabel, IonListHeader, IonItem, IonList, IonTitle, IonIcon, IonButton, IonImg, IonContent, CommonModule, FormsModule, HeadingComponent,]
+  imports: [IonToast, IonLabel, IonListHeader, IonItem, IonList, IonIcon, IonButton, IonImg, IonContent, CommonModule, FormsModule, HeadingComponent,]
 })
 export class RecipeDetailsPage implements OnInit {
   recipe: any;
@@ -33,7 +33,7 @@ export class RecipeDetailsPage implements OnInit {
     if (id) {
       try {
         this.recipe = await this.mhs.getRecipeDetails(id);
-        console.log(this.recipe)
+        this.favourited = await this.isFavourited(this.recipe.id);
       } catch (err) {
         console.error('Error fetching recipe details:', err)
       }
@@ -66,6 +66,5 @@ export class RecipeDetailsPage implements OnInit {
   ngOnInit() {
     this.getPreferredMeasurementUnit();
     this.getRecipeDetails();
-    this.isFavourited(this.recipe.id);
   }
 }
