@@ -1,3 +1,9 @@
+<div *ngIf="recipes.length === 0" class="ion-text-center ion-padding">
+  <ion-text>
+    No recipes found.
+  </ion-text>
+</div>
+
 <ion-item *ngFor="let recipe of recipes">
   <ion-card>
     <ion-img
