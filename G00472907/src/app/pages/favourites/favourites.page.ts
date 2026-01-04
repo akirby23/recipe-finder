@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent } from '@ionic/angular/standalone';
-import { HeadingComponent } from '../components/heading/heading.component';
-import { FavouriteRecipes } from '../services/favourite-recipes.service';
+import { HeadingComponent } from '../../components/heading/heading.component';
+import { FavouriteRecipes } from '../../services/favourite-recipes.service';
 import { RecipeListPage } from "../recipe-list/recipe-list.page";
 
 @Component({

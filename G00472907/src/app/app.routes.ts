@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: 'home',
-    loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
+    loadComponent: () => import('./pages/home/home.page').then((m) => m.HomePage),
   },
   {
     path: '',
@@ -12,18 +12,18 @@ export const routes: Routes = [
   },
   {
     path: 'recipe-list',
-    loadComponent: () => import('./recipe-list/recipe-list.page').then( m => m.RecipeListPage)
+    loadComponent: () => import('./pages/recipe-list/recipe-list.page').then( m => m.RecipeListPage)
   },
   {
     path: 'recipe-details/:id',
-    loadComponent: () => import('./recipe-details/recipe-details.page').then( m => m.RecipeDetailsPage)
+    loadComponent: () => import('./pages/recipe-details/recipe-details.page').then( m => m.RecipeDetailsPage)
   },
   {
     path: 'settings',
-    loadComponent: () => import('./settings/settings.page').then( m => m.SettingsPage)
+    loadComponent: () => import('./pages/settings/settings.page').then( m => m.SettingsPage)
   },
   {
     path: 'favourites',
-    loadComponent: () => import('./favourites/favourites.page').then( m => m.FavouritesPage)
+    loadComponent: () => import('./pages/favourites/favourites.page').then( m => m.FavouritesPage)
   },
 ];

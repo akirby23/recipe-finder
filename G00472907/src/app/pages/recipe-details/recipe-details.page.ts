@@ -2,16 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonImg, IonButton, IonIcon, IonList, IonItem, IonListHeader, IonLabel, IonToast } from '@ionic/angular/standalone';
-import { MyHttp } from '../services/my-http.service';
+import { MyHttp } from '../../services/my-http.service';
 import { ActivatedRoute } from '@angular/router';
-import { HeadingComponent } from "../components/heading/heading.component";
-import { Settings } from '../services/settings';
-import { FavouriteRecipes } from '../services/favourite-recipes.service';
+import { HeadingComponent } from "../../components/heading/heading.component";
+import { Settings } from '../../services/settings.service';
+import { FavouriteRecipes } from '../../services/favourite-recipes.service';
 
 @Component({
   selector: 'app-recipe-details',
   templateUrl: './recipe-details.page.html',
-  styleUrls: ['./recipe-details.page.scss'],
   standalone: true,
   imports: [IonToast, IonLabel, IonListHeader, IonItem, IonList, IonIcon, IonButton, IonImg, IonContent, CommonModule, FormsModule, HeadingComponent,]
 })

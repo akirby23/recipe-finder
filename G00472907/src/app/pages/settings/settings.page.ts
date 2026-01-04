@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonRadioGroup, IonRadio, IonItem } from '@ionic/angular/standalone';
-import { Settings } from '../services/settings';
-import { HeadingComponent } from '../components/heading/heading.component';
+import { Settings } from '../../services/settings.service';
+import { HeadingComponent } from '../../components/heading/heading.component';
 
 enum MeasurementOptions {
   Metric = 'Metric',

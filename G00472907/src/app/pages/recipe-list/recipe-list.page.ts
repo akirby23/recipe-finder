@@ -7,7 +7,6 @@ import { IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButton, IonImg
 @Component({
   selector: 'app-recipe-list',
   templateUrl: './recipe-list.page.html',
-  styleUrls: ['./recipe-list.page.scss'],
   standalone: true,
   imports: [IonItem, IonImg, IonButton, CommonModule, FormsModule, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonText]
 })
