@@ -1,26 +1,51 @@
-<ion-content [fullscreen]="true">
-  <h2>Ingredients</h2>
-  <ion-card>
-    <ion-img alt="placeholder image" src="https://images.pexels.com/photos/4033636/pexels-photo-4033636.jpeg"></ion-img>
-    <ion-card-header>
-      <ion-card-title>
-        {{ ingredient }}
-      </ion-card-title>
-        {{ quantity }}
-    </ion-card-header> 
-  </ion-card>
+<app-heading></app-heading>
+<ion-content [fullscreen]="true" *ngIf="recipe">
+  <ion-title> {{ recipe.title }}</ion-title>
+  <ion-img alt="Image of {{ recipe.title }}" src="{{ recipe.image }}">
+  </ion-img>
+  <ion-list [inset]="true">
+    <ion-list-header>
+      <h2>Ingredients</h2>
+    </ion-list-header>
+    <ion-item *ngFor="let ingredient of recipe.extendedIngredients">
+      <ion-img
+        [src]="'https://spoonacular.com/cdn/ingredients_100x100/' + ingredient.image"
+        alt="Image of {{ ingredient.original }}"
+        slot="start"
+        style="width: 50px"
+      >
+      </ion-img>
+      <ion-label *ngIf="preferredMeasurementUnit === 'Metric'">
+        <p>{{ ingredient.original }}</p>
+        <p>
+          {{ ingredient.measures.metric.amount }} {{
+          ingredient.measures.metric.unitLong }}
+        </p>
+      </ion-label>
+      <ion-label *ngIf="preferredMeasurementUnit === 'US'">
+        <p>{{ ingredient.original }}</p>
+        <p>
+          {{ ingredient.measures.us.amount }} {{
+          ingredient.measures.us.unitLong}}
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 
-  <h2>Instructions</h2>
-  <ol>
-    <li>Step 1</li>
-    <li>Step 2</li>
-    <li>Step 3</li>
-    <li>Step 4</li>
-    <li>Step 5</li>
-    <li>Step 6 </li>
-    <li>Step 7</li>
-  </ol>
+  <ion-list [inset]="true">
+    <ion-list-header>
+      <h2>Instructions</h2>
+    </ion-list-header>
+    <ion-item
+      *ngFor="let instruction of recipe.analyzedInstructions['0'].steps"
+    >
+      <ion-label> {{ instruction.number }}. {{ instruction.step }} </ion-label>
+    </ion-item>
+  </ion-list>
 
-  <ion-button aria-label="Add to Favourites"><ion-icon name="heart"></ion-icon> Add to Favourites</ion-button>
-  <ion-button aria-label="Remove from Favourites"><ion-icon name="heart-dislike"></ion-icon> Remove from Favourites</ion-button>
+  <ion-button aria-label="Add to Favourites">
+    <ion-icon name="heart"></ion-icon> Add to Favourites</ion-button>
+  <ion-button aria-label="Remove from Favourites">
+    <ion-icon name="heart-dislike"></ion-icon> Remove from
+    Favourites</ion-button>
 </ion-content>
