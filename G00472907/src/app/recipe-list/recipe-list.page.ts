@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButton, IonImg, IonItem } from '@ionic/angular/standalone';
 
 @Component({
@@ -11,7 +12,7 @@ import { IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButton, IonImg
   imports: [IonItem, IonImg, IonButton, CommonModule, FormsModule, IonCard, IonCardHeader, IonCardTitle, IonCardContent,]
 })
 export class RecipeListPage  {
-  constructor() {}
+  constructor(private router: Router) {}
 
   @Input() recipes: any[] = [];
   @Output() select = new EventEmitter<any>();

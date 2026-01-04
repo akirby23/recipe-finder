@@ -1,48 +1,39 @@
 import { Component } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, IonIcon, IonSearchbar } from '@ionic/angular/standalone';
-import { addIcons } from 'ionicons';
-import { logoIonic, heart, settingsOutline } from 'ionicons/icons';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, IonIcon, IonSearchbar, IonItem } from '@ionic/angular/standalone';
 import { MyHttp } from '../services/my-http.service';
 import { HttpOptions } from '@capacitor/core';
 import { environment } from 'src/environments/environment';
 import { FavouriteRecipes } from '../services/favourite-recipes.service';
+import { RecipeListPage } from "../recipe-list/recipe-list.page";
+import { HeadingComponent } from "../components/heading/heading.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, IonIcon, IonSearchbar],
+  imports: [IonContent, IonSearchbar, RecipeListPage, HeadingComponent],
 })
 export class HomePage {
-  searchQuery: string;
+  searchQuery: string = '';
   recipeData: any[] = [];
 
-  options: HttpOptions = {
-    url: 'https://spoonacular.com/recipes/complexSearch',
-    params: {
-      apiKey: environment.apiKey,
-    }
-  }
-
-  constructor(private mhs: MyHttp, private frs: FavouriteRecipes) {
-    this.searchQuery = '';
+  constructor(private mhs: MyHttp) {
   }
 
   async searchRecipes(event?: any) {
+    if (event) {
+      this.searchQuery = event.detail.value;
+    }
+
+    if (!this.searchQuery) return;
+
     try {
-      if (event) this.searchQuery = event.detail.value;
-
-      if (this.searchQuery) {
-        this.options.params!['query'] = this.searchQuery;
-        console.log(this.options.params)
-      } 
-
-      let result = await this.mhs.get(this.options);
-      this.recipeData = result.data;
-      console.log(result);
+      this.recipeData = await this.mhs.searchRecipes(this.searchQuery);
+      console.log(this.recipeData)
     } catch (err) {
-      console.error('Error fetching recipes:', err)
+      console.error('Error fetching recipes:', err);
+      this.recipeData = [];
     }
   }
 }
