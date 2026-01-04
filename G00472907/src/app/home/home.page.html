@@ -1,19 +1,5 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title slot="start">
-      G00472907
-    </ion-title>
-    <ion-buttons slot="end">
-      <ion-button>
-        <ion-icon name="heart" aria-label="Favourite"></ion-icon>
-      </ion-button>
-      <ion-button>
-          <ion-icon name="settings-outline" aria-label="Settings"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
+<app-heading></app-heading>>
 <ion-content [fullscreen]="true">
   <ion-searchbar [value]="searchQuery" (ionInput)="searchRecipes($event)" [debounce]="1000" show-clear-button="focus" placeholder="Search Recipes by Ingredients"></ion-searchbar>
+  <app-recipe-list [recipes]="recipeData"></app-recipe-list>
 </ion-content>
