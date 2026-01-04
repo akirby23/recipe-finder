@@ -5,7 +5,6 @@ import { Storage } from '@ionic/storage-angular';
   providedIn: 'root',
 })
 export class FavouriteRecipes {
-
   constructor(private storage: Storage) {
     this.init();
   }
@@ -14,8 +13,12 @@ export class FavouriteRecipes {
     const storage = await this.storage.create();
   }
 
-  async set(key:string, value:any) {
-    await this.storage.set(key, value);
-  }
+  async get(key: string, defaultOption: any) {
+      let value = await this.storage.get(key);
+      return value ?? defaultOption;
+    }
   
+    async set(key:string, value:any) {
+      await this.storage.set(key, value);
+    }
 }

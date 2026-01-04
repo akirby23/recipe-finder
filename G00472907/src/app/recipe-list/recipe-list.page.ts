@@ -17,7 +17,7 @@ export class RecipeListPage  {
   @Input() recipes: any[] = [];
   @Output() select = new EventEmitter<any>();
 
-  openRecipeDetailsPage(id: number) {
+  openRecipeDetailsPage(id: string) {
     this.router.navigate(['/recipe-details', id])
   }
 }

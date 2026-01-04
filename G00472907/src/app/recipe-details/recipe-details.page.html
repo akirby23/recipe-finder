@@ -43,9 +43,10 @@
     </ion-item>
   </ion-list>
 
-  <ion-button aria-label="Add to Favourites">
-    <ion-icon name="heart"></ion-icon> Add to Favourites</ion-button>
-  <ion-button aria-label="Remove from Favourites">
-    <ion-icon name="heart-dislike"></ion-icon> Remove from
-    Favourites</ion-button>
+  <div class="ion-padding-start ion-padding-bottom">
+    <ion-button (click)="toggleFavourite()" aria-label="Toggle favourites">
+      <ion-icon [name]="favourited ? 'heart-dislike' : 'heart'"></ion-icon>
+      {{ favourited ? ' Unfavourite' : ' Favourite'}}
+    </ion-button>
+  </div>
 </ion-content>

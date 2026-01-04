@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { HeaderComponent } from '../components/header/header.component';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonRadioGroup, IonRadio, IonItem } from '@ionic/angular/standalone';
+import { IonContent, IonRadioGroup, IonRadio, IonItem } from '@ionic/angular/standalone';
 import { Settings } from '../services/settings';
+import { HeadingComponent } from '../components/heading/heading.component';
 
 enum MeasurementOptions {
   Metric = 'Metric',
@@ -14,7 +14,7 @@ enum MeasurementOptions {
   selector: 'app-settings',
   templateUrl: './settings.page.html',
   standalone: true,
-  imports: [IonItem, IonRadio, IonRadioGroup, IonContent, CommonModule, FormsModule,]
+  imports: [IonItem, IonRadio, IonRadioGroup, IonContent, CommonModule, FormsModule, HeadingComponent]
 })
 
 export class SettingsPage {
