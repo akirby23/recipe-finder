@@ -46,9 +46,11 @@
   </ion-list>
 
   <div class="ion-padding-start ion-padding-bottom">
-    <ion-button (click)="toggleFavourite()" aria-label="Toggle favourites">
+    <ion-button id="open-toast" expand="block" (click)="toggleFavourite()" aria-label="Toggle favourites">
       <ion-icon [name]="favourited ? 'heart-dislike' : 'heart'"></ion-icon>
       {{ favourited ? ' Unfavourite' : ' Favourite'}}
     </ion-button>
   </div>
+
+  <ion-toast trigger="open-toast" [message]="favourited ? 'Added to Favourites' : 'Removed fron Favourites'" [duration]="2000"></ion-toast>
 </ion-content>
