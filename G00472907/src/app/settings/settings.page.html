@@ -1,10 +1,18 @@
 <app-heading></app-heading>
 <ion-content [fullscreen]="true">
-  <h2>Measurement Preferences</h2>
-  <p>Display measurements in:</p>
-  <ion-radio-group [(ngModel)]="selectedMeasurement" (ionChange)="changeMeasurementSettings($event.detail.value)">
-  <ion-item *ngFor="let option of measurementOptions">
-  <ion-radio [value]="option">{{ option }}</ion-radio><br />
-  </ion-item>
-</ion-radio-group>
+  <div class="ion-padding-top ion-text-center">
+    <h2>Settings</h2>
+  </div>
+  <div class="ion-padding-start">
+    <h3>Measurement Preferences</h3>
+    <p>Display measurements in:</p>
+  </div>
+  <ion-radio-group
+    [(ngModel)]="selectedMeasurement"
+    (ionChange)="changeMeasurementSettings($event.detail.value)"
+  >
+    <ion-item *ngFor="let option of measurementOptions">
+      <ion-radio [value]="option">{{ option }}</ion-radio><br />
+    </ion-item>
+  </ion-radio-group>
 </ion-content>
